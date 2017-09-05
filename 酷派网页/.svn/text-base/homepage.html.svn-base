@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="img/酷派商城_files/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="css/sow.css"/>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/listData.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="myhearder"></div>
+		<div id="mybody">
+			<div id="sow_wrap">
+				<ul id="sow_pic">
+					<li><img src="img/酷派商城_files/70 (1).jpg" /></li>
+					<li><img src="img/酷派商城_files/70 (2).jpg" /></li>
+					<li><img src="img/酷派商城_files/70.jpg" /></li>
+					<li><img src="img/酷派商城_files/bg.jpg" /></li>
+				</ul>
+				<ul id="sow_con">
+					<img src="img/酷派商城_files/title.png" />
+					<img src="img/酷派商城_files/text.png" />
+					<img src="img/酷派商城_files/button.png" />
+					<img src="img/酷派商城_files/phone_32.png" />
+					<img src="img/酷派商城_files/phone_31.png" />
+				</ul>
+				<ul id="sow_num">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div id="advertisement_wrap">
+				<ul>
+					<li><a href="javascript:xoid(0)"><img src="img/酷派商城_files/378x180.jpg" /></a></li>
+					<li><a href="javascript:xoid(0)"><img src="img/酷派商城_files/378x180 (1).jpg" /></a></li>
+					<li><a href="javascript:xoid(0)"><img src="img/酷派商城_files/378x180 (2).jpg" /></a></li>
+				</ul>
+			</div>
+			<div id="hot_phone">
+				<div id="hot_phone_title">
+					<img src="img/酷派商城_files/phone_icon.png" />
+					<span id="sell_hot_phone">热销手机</span>
+					<a href="commoditypage.html">更多商品 ></a>
+				</div>
+				<ul id="hot_phone_list"></ul>
+			</div>
+			<div id="sift_commodity">
+				<div id="sift_commodity_title">
+					<img src="img/酷派商城_files/sift.png" />
+					<span id="sell_sift_phone">精选商品</span>
+					<a href="commoditypage.html">更多商品 ></a>
+				</div>
+				<ul id="sift_commodity_con">
+					<img src="img/酷派商城_files/5.jpg" />
+				</ul>
+			</div>
+			<div id="video">
+				<div id="video_commodity_title">
+					<img src="img/酷派商城_files/Video.png" />
+					<span id="sell_video_phone">视频</span>
+				</div>
+				<ul id="video_con"></ul>
+			</div>
+			<ul id="tab">
+				<li><img src="img/酷派商城_files/headset.png" /><div><a href="#">在线咨询</a></div></li>
+				<li><img src="img/酷派商城_files/triangle.png" /><div><a href="#">回到顶部</a></div></li>
+			</ul>
+		</div>
+		<div id="myfooter"></div>
+	</body>
+	<script type="text/javascript">
+		$('#myhearder').load('header.html',function(){
+			$('body').css({
+				width:'100%',
+				height:'66px'
+			})
+		})
+		$('#myfooter').load('footer.html',function(){
+			$('body').css({
+				width:'100%',
+				height:'466px'
+			})
+		})
+		$(function(){
+			var inow=0
+			var onewhidth=$('#sow_pic li').eq(0).width()
+			$('#sow_num li').click(function(){
+				inow=$(this).index()
+				move()
+			})
+			setInterval(change,4000)
+			function change(){
+				inow++
+				move()
+			}
+			function move(){
+				if(inow==3){
+					$('#sow_con').eq(0).show()
+					$('#sow_con').children().fadeIn(1000)
+				}else{
+					$('#sow_con').eq(0).hide()
+				}
+				inow=inow>3?0:inow
+				inow=inow<0?3:inow
+				if($('#sow_pic li:not(:animated)')){
+					$('#sow_pic li').eq(inow).fadeIn().siblings().fadeOut()
+					$('#sow_num li').eq(inow).addClass('active').siblings().removeClass('active')
+				}
+			}
+			var hotData=listData.hot.hotData;
+			var str="";
+			$.each(hotData, function(i,ele) {
+					str+='<li><a>'
+							+'<dl id="'+hotData[i].id+'">'
+							+'<dt><img src="'+hotData[i].src+'" /></dt>'
+							+'<dd>'+hotData[i].name+'</dd>'
+							+'<dd>'+hotData[i].description+'</dd>'
+							+'<dd>'+hotData[i].price+'</dd>'
+							+'</dl>'
+					   	+'</a></li>'
+			});
+			$("#hot_phone_list").append(str);
+			$("#hot_phone_list dl").click(function(){
+				window.location.href="shoppingCart.html?hot#"+$(this).attr("id");	
+			})
+			var siftData=listData.sift.siftData;
+			var siftstr="";
+			$.each(siftData, function(i,ele) {
+					siftstr+='<li><a>'
+							+'<dl id="'+siftData[i].id+'">'
+							+'<dt><img src="'+siftData[i].src+'" /></dt>'
+							+'<dd>'+siftData[i].name+'</dd>'
+							+'<dd>'+siftData[i].description+'</dd>'
+							+'<dd>'+siftData[i].price+'</dd>'
+							+'</dl>'
+					   	+'</a></li>'
+			});
+			$("#sift_commodity_con").append(siftstr);
+			$("#sift_commodity_con dl").click(function(){
+				window.location.href="shoppingCart.html?sift#"+$(this).attr("id");	
+			})
+			var videoData=listData.video.videoData;
+			var videostr="";
+			$.each(videoData, function(i,ele) {
+					videostr+='<li><a href="http://cpmall-cdn.coolpad.com/video/'+i+'.mp4">'
+							+'<dl id="'+videoData[i].id+'">'
+							+'<dt><img src="'+videoData[i].src+'" /><img src="img/酷派商城_files/play(1).png" /></dt>'
+							+'<dd>'+videoData[i].name+'</dd>'
+							+'<dd>'+videoData[i].description+'</dd>'
+							+'</dl>'
+					   	+'</a></li>'
+			});
+			$("#video_con").append(videostr);
+		})
+	</script>
+</html>

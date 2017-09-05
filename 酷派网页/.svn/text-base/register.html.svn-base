@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<link rel="shortcut icon" href="img/酷派商城_files/icon.png"/>
+		<style type="text/css">
+			*{margin:0;padding: 0;}
+			#register_wrap{
+				width: 100%;
+				min-width: 1300px;
+				background: #f5f8ff;
+			}
+			#register{
+				width: 570px;
+				height: 850px;
+				margin: 0 auto;
+				padding-top: 80px;
+				box-sizing: border-box;
+			}
+			.register_icon{
+				width: 230px;
+				height: 54px;
+				margin-left: 172px;
+			}
+			
+			#register_con{
+				width: 502px;
+				height: 600px;
+				border-radius: 10px;
+				background: #ffffff;
+				margin: 10px auto;
+			}
+			#register_title{
+				width: 444px;
+				height: 0px;
+				border: 1px solid #dcdee5;
+				margin-top: 50px;
+				margin-left: 20px;
+				box-sizing: border-box;
+			}
+			#register_tit{
+				font-size: 20px;
+				padding: 5px 20px;
+				box-sizing: border-box;
+				position: relative;
+				top: 30px;
+				left: 30%;
+			}
+			#con_content{
+				width: 450px;
+				height: 490px;
+				/*overflow: hidden;*/	
+				position: relative;
+			}
+			#con_content input{
+				width: 354px;
+				height: 48px;
+				margin-top: 16px;
+				margin-left: 74px;
+				border: 1px solid #ccccd6;
+			}
+			#login_cell_phone,#login_user_pass{
+				background: url(img/酷派商城_files/phone.png) no-repeat 14px 10px;
+				padding-left: 46px;
+				box-sizing: border-box;
+			}
+			#login_user_pass{
+				background: url(img/酷派商城_files/key.png) no-repeat 14px 10px;
+			}
+			.login_code,#login_note_code,#login_pass_verify{
+				padding-left: 14px;
+				box-sizing: border-box;
+			}
+			input:focus{
+				outline: none;
+			}
+			.login_promptly{
+				margin-top: 10px;
+				background: #55a0ff;
+				color: white;
+			}
+			.login_con_hint{
+				margin-left: 300px;
+				margin-top: 20px;
+			}
+			#hint a{
+				color: #55a0ff;
+				text-decoration: none;
+			}
+			.login_con_hint span:hover{
+				color: #55a0ff;
+			}
+
+			#login_bottom{
+				font-size: 14px;
+				margin-top: 40px;
+			}
+			.auth_code{
+				background: rgba(134,255,251,0.3);
+				cursor:pointer;
+				padding: 5px;
+				position: absolute;
+				top: 90px;
+				right: 40px;
+				z-index: 999;
+			}			
+
+			#hint{
+				font-size: 12px;
+				color: #CCCCD6;
+				margin-left: 50px;
+				margin-top: 10px;
+			}
+			.decide{
+				margin: 0 auto;
+				text-align: center;
+			}
+		</style>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="register_wrap">
+			<div id="register">
+				<img src="img/酷派商城_files/coolpad.png" class="register_icon"/>
+				<div id="register_con">
+					<span id="register_tit">注册酷派账号</span>
+					<div id="register_title"></div>
+					<div id="con_content">
+						    <input type="text" id="login_cell_phone" placeholder="手机号" /><br />
+							<input type="text" class="login_code" placeholder="验证码" /><br />
+							<input type="text" id="login_note_code" placeholder="短信验证码" /><br />
+							<input type="password" id="login_user_pass" placeholder="密码（6-16位）" /><br />
+							<input type="password" id="login_pass_verify" placeholder="确认密码" /><br />
+							<div class="decide"></div>
+							<input type="button" class="login_promptly" value="立即注册" /><br />
+							<span class="auth_code"></span>
+							<p class="login_con_hint">
+								<span>已有账号，登录</span>
+							</p>
+							<p id="hint">提示：未注册的手机号，登录时将自动注册酷派&乐视账号，且表示你同意并愿意遵守酷派账号<a href="javascript:void(0)">用户协议</a>和<a href="javascript:void(0)">隐私政策</a></p>
+					</div>
+				</div>
+				<div id="login_bottom">
+					Copyright © 2015 版权所有 宇龙计算机通信科技(深圳)有限公司 粤ICP备10028763号-1
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			create()
+			$('.auth_code').click(create)
+//			$('.login_promptly').click(decide)
+		})
+		var code;
+		var flag=true;
+		function create(){
+			var selectChar=[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','N','M','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+			code=''
+			var codeLength=4
+			var codeContent=$('.auth_code')
+			for(var i=0;i<codeLength;i++){
+				var charIndex =Math.floor(Math.random()*selectChar.length);
+				code +=selectChar[charIndex];
+				codeContent.html(code);
+			}
+		}
+//		var errmsg;
+//		function decide(){
+//			var flag=true;
+//			errMsg="";
+//			if(!$('#login_user_phone').val()){
+//				$('.decide').html("请输入手机号/邮箱")
+//				flag=false;
+//			}else{
+//				$('.decide').html("")
+//			}
+//			if(!$('#login_cell_phone').val()){
+//				$('.decide').html("请输入手机号")
+//				flag=false;
+//			}else if(!/^1[3|5|7|8][0-9](\d{4}|\d{8})$/.test($('#login_cell_phone').val())){
+//				errMsg="手机号格式错误";
+//				flag=false;
+//			}
+//		}
+	</script>
+	</script>
+</html>

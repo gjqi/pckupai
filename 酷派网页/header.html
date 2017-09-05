@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+	</head>
+	<body>
+		<div id="header_wrap">
+			<div id="header">
+				<div id="header_con">
+					<a href="homepage.html"><img src="img/酷派商城_files/tubiao4.png"/></a>
+					<div id="header_right">
+						<a href="homepage.html">酷派商城</a>
+						<a href="javascript:void(0)">Cool 系列</a>
+						<a href="commoditypage.html">全部商品</a>
+						<a href="javascript:void(0)">酷友社区</a>
+						<a href="javascript:void(0)">云服务</a>
+						<a href="javascript:void(0)">以旧换新</a>
+						<a href="javascript:void(0)"><img src="img/酷派商城_files/tubiao3.png" /></a>
+						<a href="cart.html"><img src="img/酷派商城_files/tubiao2.png" />
+							<div id="shoppingCar">
+								<p id="trigon">▲</p>
+								<div id="shoppingCar_null">
+									<img src="img/酷派商城_files/shopping_cart.png" />
+									<div>购物车内未添加商品</div>
+								</div>
+							</div>
+						</a>
+						<a href="javascript:void(0)" id="last_header"><img src="img/酷派商城_files/tubiao1.png" /></a>
+						<div id="header_login">
+								<div id="trigon_second">▲</div>
+								<div id="link_wrap">
+									<a href="login.html"><p id="login_link"><img src="img/酷派商城_files/people_login.png" />登录账户</p></a>
+									<a href="register.html"><p id="register_link"><img src="img/酷派商城_files/pen.png" />注册账户</p></a>
+								</div>
+						</div>
+					</div>
+					
+				</div>
+				<div id="list">
+					<div id="list_commodity">
+						<a href="shoppingCart.html"><img src="img/酷派商城_files/1.png" /><p>cool S1</p></a>
+						<a href="shoppingCart.html"><img src="img/酷派商城_files/1.png" /><p>cool 1C</p></a>
+						<a href="shoppingCart.html"><img src="img/酷派商城_files/1.png" /><p>cool1 dual</p></a>
+						<a href="shoppingCart.html"><img src="img/酷派商城_files/1.png" /><p>酷玩6</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var timer=null
+			$('#header_right a').eq(1).mouseover(function(){
+				clearTimeout(timer)
+				$('#list').slideDown()
+			})
+			$('#header_right a').eq(1).mouseout(function(){
+				timer=setTimeout(function(){
+					$('#list').slideUp()
+				},1000)
+			})
+			$('#last_header').mouseover(function(){
+				clearTimeout(timer)
+				$('#header_login').show()
+			})
+			$('#last_header').mouseout(function(){
+				timer=setTimeout(function(){
+					$('#header_login').hide()
+				},1000)
+			})
+			
+		})
+	</script>
+</html>

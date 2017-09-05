@@ -1,0 +1,363 @@
+/*商品详情*/
+*{margin: 0;padding: 0;}
+#mybody{
+	width: 100%;
+}
+#wrap{
+	width: 100%;
+	overflow: hidden;
+}
+/*左边的图片*/
+#shopping_left{
+	float: left;
+	width: 50%;
+}
+#picture_big{
+	width: 570px;
+	height: 570px;
+	margin-top: 30px ;
+	margin-left: 140px;
+}
+#picture_big img{
+	width: 570px;
+	height: 570px;
+	position: absolute;
+}
+#left_bottom_first{
+	width: 600px;
+	height: 110px;
+	margin-left: 140px;
+}
+#shopping_left button{
+	border: none;
+	background: white;
+	font-size: 25px;
+	cursor: pointer;
+}
+#shopping_left button:hover{
+	color: #55a0ff;
+}
+#left_bottom_first div{
+	display: inline-block;
+	width: 490px;
+	height: 95px;
+	overflow: hidden;
+	vertical-align: middle;
+	margin-left: 8px;
+}
+#left_bottom_first ul{
+	display: inline-block;
+	list-style: none;
+	width: 600px;
+	height: 95px;
+
+}
+#left_bottom_first ul li{
+	float: left;
+	width: 90px;
+	height: 91px;
+	margin-right: 6px;
+	border: 1px solid #eeeef3;
+	cursor: pointer;
+}
+/*右边的内容*/
+#shopping_right{
+	float: right;
+	width: 50%;
+	font-size: 16px;
+	position: relative;
+}
+.name_title{
+	margin-top: 37px;
+	width: 550px;
+	height: 30px;
+	font-size: 24px;
+	color: #333333;
+	margin-bottom: 18px;
+}
+hr{
+	width: 550px;
+	height: 0px;
+	border: 1px solid #f3f3f3;
+}
+.price_title{
+	width: 550px;
+	height: 26px;
+	font-size: 24px;
+	color: #55a0ff;
+	margin-top: 16px;
+	margin-bottom: 40px;
+}
+#delivery_time{
+	font-size: 14px;
+	color: #666666;
+}
+#shopping_right #delivery{
+	display: inline-block;
+	font-size: 16px;
+	border: 1px solid #cccccc;
+	line-height: 29px;
+	background: white;
+	border-radius: 5px 5px 0 0;
+/*	border-bottom: 0px solid #cccccc;*/
+	margin-bottom: 18px;
+	cursor: pointer;
+	z-index: 999;
+}
+#delivery p{
+	transform: rotate(180deg);
+	display: inline-block;
+}
+#location{
+	width: 384px;
+	height: 263px;
+	border: 1px solid #cccccc;
+	position: absolute;
+	top: 195px;
+	background: white;
+	border-radius: 5px;
+	display: none;
+}
+#location ul{
+	list-style: none;
+	width: 384px;
+	height: 36px;
+}
+#location ul li{
+	width: 110px;
+	height: 21px;
+	margin-right: 5px;
+	border: 1px solid #cccccc;
+	border-bottom: 0px solid #cccccc;
+	border-radius:  5px 5px 0 0;
+	float: left;
+	margin-top: 14px;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+#location ul li:nth-of-type(1){
+	margin-left: 9px;
+}
+#location_minute{
+	width: 384px;
+	height: 227px;
+	border-top: 1px solid #cccccc;
+	position: relative;
+}
+#location_minute div{
+	width: 384px;
+	height: 227px;
+	position: absolute;
+}
+#location_minute div span{
+	cursor: pointer;
+}
+.select_color{
+	font-size: 16px;
+	color: #999999;
+}
+.color{
+	width: 570px;
+	height:149px;
+}
+.color div{
+	width: 260px;
+	line-height: 50px;
+	border: 1px solid #dfdfdf;
+	border-radius: 5px;
+	float: left;
+	margin-right: 22px;
+	text-align: center;
+	font-size: 17px;
+	color: #333333;
+	cursor: pointer;
+}
+.color div p{
+	width: 21px;
+	height: 21px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.color div:nth-of-type(1) p{
+	background: #b3e1fe;
+}
+.color div:nth-of-type(2) p{
+	background: #c2252c;
+}
+.select_pro{
+	font-size: 21px;
+	color: #999999;
+	margin-bottom: 18px;
+}
+.name_con{
+	font-size: 16px;
+	color: #7d7d7d;
+	margin-bottom: 18px;
+}
+.price_con{
+	color: #7aa0ff;
+}
+.btn{
+	margin-top: 18px;
+	width: 570px;
+}
+.btn button{
+	width: 260px;
+	height: 60px;
+	font-size: 18px;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.btn button:nth-of-type(1){
+	background: #f5b400;
+	margin-right: 25px;
+}
+.btn button:nth-of-type(2){
+	background: #2485ff;
+}
+/*下部分的信息详情*/
+#message_wrap{
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #f7f7f7;
+	margin-top: 50px;
+}
+#details_list{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	list-style: none;
+	text-align: center;
+	border: 1px solid #f9f9f9;
+	background: white;
+}
+#details_list li{
+	height: 70px;
+	font-size: 21px;
+    color: #999999;
+    float: left;
+    margin-right: 70px;
+    cursor: pointer;
+}
+#details_list li:first-child{
+	margin-left: 156px;
+}
+#location_minute span{
+	margin-left: 20px;
+	cursor: pointer;
+}
+#location_minute{
+	padding-top: 20px;
+}
+#details_con{
+	width: 100%;
+	height: auto;
+}
+#details_con div{
+	width: 100%;
+	height: auto;
+}
+#details_con div:first-child img{
+	width: 100%;
+	height: 1200px;
+}
+#safeguard p img{
+	width: 34px;
+	height: 40px;
+	margin-right: 20px;
+}
+#safeguard p{
+	margin-left: 125px;
+	margin-top: 30px;
+	width: 1200px;
+	height: 50px;
+	background: #f9f9fc;
+	padding-left: 24px;
+	padding-top: 8px;
+	box-sizing: border-box;
+	font-size: 22px;
+}
+#safeguard div{
+	margin-left: 200px;
+	font-size: 19px;
+	line-height: 30px;
+	margin-top: 34px;
+	width: 1120px;
+}
+#details_con div:nth-of-type(3) p{
+	width: 1220px;
+	height: 500px;
+	margin-left: 125px;
+}
+#details_con div:nth-of-type(3) p span{
+	font-size: 19px;
+	margin-right: 14px;
+}
+#details_con div:nth-of-type(2) table{
+	margin-left: 170px;
+	font-size: 16px;
+	
+}
+#details_con div:nth-of-type(2) table tr{
+	height: 60px;
+	line-height: 60px;
+}
+#details_con div:nth-of-type(2) table tr td{
+	color: black;
+	border-bottom: 1px solid #f3f3f3;
+}
+#details_con div:nth-of-type(2) table tr td:nth-of-type(1){
+	table-layout: fixed;
+	width: 300px;
+}
+#details_con div:nth-of-type(2) table tr th{
+	color: black;
+	font-weight: bold;
+	border-bottom: 1px solid #f3f3f3;
+}
+/*回到顶部*/
+#tab{
+	width: 42px;
+	height: 76px;
+	background:rgba(255,255,255,0.3);
+	position: fixed;
+	right: 0;
+	bottom: 100px;
+}
+#tab li{
+	width: 42px;
+	height: 38px;
+	list-style: none;
+	position: relative;
+}
+#tab li img{
+	width: 18px;
+	height: 18px;
+	margin: 10px;
+}
+#tab li div{
+	width: 36px;
+	display: none;
+}
+#tab li:nth-of-type(1) div,#tab li:nth-of-type(2) div{
+	position: absolute;
+	top: 0;
+	left: 6px;
+}
+#tab li:hover div{
+	display: block;
+}
+#tab li:hover img{
+	display: none;
+}
+#tab li div a{
+	color: #a7a7b1;
+	text-decoration: none;
+}
+.active{
+	border: 1px solid #55a0ff;
+}

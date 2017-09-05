@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="img/酷派商城_files/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="css/shoppingCart.css"/>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dataList.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/my.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="myhearder"></div>
+		<div id="mybody">
+			<div id="wrap">
+				<div id="shopping_left">
+					<div id="picture_big">
+					</div>
+					<div id="left_bottom_first">
+						<button><</button>
+						<div><ul></ul></div>
+						<button>></button>
+					</div>	
+				</div>
+				<div id="shopping_right">
+					<p class="commodity_name name_title">酷派LED灯多彩数据线</p>
+					<hr />
+					<p class="commodity_price price_title">￥29.00</p>
+					<div id="delivery"><span>送至</span><p>▲</p></div><span id="delivery_time">由圆通24小时内发货，预计后天(07月09号)送达</span>
+					<div id="location">
+						<ul>
+							<li>请选择</li>
+							<li>请选择</li>
+							<li>请选择</li>
+						</ul>
+						<div id="location_minute">
+							<div class="first"></div>
+							<div class="second"></div>
+							<div class="third"></div>
+						</div>
+					</div>
+					<p class="select_color">选择颜色</p>
+					<div class="color">
+						<div><p></p>蓝色</div>
+						<div><p></p>红色</div>
+					</div>
+					<p class="select_pro">您选择了以下产品</p>
+					<p class="commodity_name name_con">酷派LED灯多彩数据线</p>
+					应付金额（不含运费）：<span class="commodity_price price_con">￥29.00</span>
+					<p class="btn"><button>加入购物车</button><button>立即购买</button></p>  
+				</div>
+			</div>
+			<div id="message_wrap">
+				<ul id="details_list">
+					<li>产品详情</li>
+					<li>参数规格</li>
+					<li>包装清单</li>
+					<li>评价</li>
+					<li>售后保障</li>
+				</ul>
+				<div id="details_con">
+					<div></div>
+					<div>
+						<table>
+							
+						</table>
+					</div>
+					<div><p></p></div>
+					<div>当前商品暂无评论</div>
+					<div id="safeguard">
+						<p><img src="img/酷派商城_files/商品列/1.png" />厂家服务</p>
+						<div>
+							本产品全国联保，享受三包服务，质保期为：一年。<br />
+							如产品发生性能故障，您可凭厂商维修中心或特约维修点的质量检测证明，自产品出售之日起7日内可选择退货、换货或修理，自产品出售之日起15日内<br/>
+							可选择换货或修理，自产品出售之日起15日以上在质保期内可享受免费保修服务！<br />
+							(注:如厂家在商品介绍中有售后保障的说明,则此商品按照厂家说明执行售后保障服务)。<br /><br /><br />
+							品牌官方网站：http://www.coolpad.com/<br />
+							售后服务电话：400-888-1388<br />
+						</div>
+						<p><img src="img/酷派商城_files/商品列/2.png" />酷派承诺</p>
+						<div>凡酷派商城销售并发货的商品，将由酷派提供正规发票和相应的售后服务。请您放心购买。</div>
+						<p><img src="img/酷派商城_files/商品列/3.png" />正品行货</p>
+						<div>酷派商城向您保证所售商品均为正品行货。</div>
+						<p><img src="img/酷派商城_files/商品列/4.png" />全国联保</p>
+						<div>您可凭质保证书及产品发票，享受全国联保服务，与您亲临商场选购的商品享受相同的质量保证。酷派商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买。</div>
+					</div>
+				</div>
+			</div>
+			<ul id="tab">
+				<li><img src="img/酷派商城_files/headset.png" /><div><a href="#">在线咨询</a></div></li>
+				<li><img src="img/酷派商城_files/triangle.png" /><div><a href="#">回到顶部</a></div></li>
+			</ul>
+		</div>
+		<div id="myfooter"></div>
+	</body>
+	<script type="text/javascript">
+		$('#myhearder').load('header.html',function(){
+			$('body').css({
+				width:'100%',
+				height:'66px'
+			})
+		})
+		$('#myfooter').load('footer.html',function(){
+			$('body').css({
+				width:'100%',
+				height:'466px'
+			})
+		})
+		var proindex
+		var con
+		$(function(){
+			var hashname=window.location.hash.substr(1);
+			var searchname=window.location.search.substr(1);
+			var Details="";
+			if(searchname=="hot"){
+				Details=product.hot;
+			}else if(searchname=="sift"){
+				Details=product.sift;
+			}
+			
+			$.each(Details,function(i,ele){				
+				if(Details[i].id==hashname){
+					$(".commodity_price").html(Details[i].price);	
+					$(".commodity_name").html(Details[i].name);
+					var picture=Details[i].picture;
+					var picturestr=""
+					var picturestrs=""
+					$.each(picture, function(i,ele) {
+						picturestr+='<img src="'+picture[i].bigpicture+'"/>'
+						picturestrs+='<li><img src="'+picture[i].smallpicture+'" /></li>'
+				    });
+				    $("#picture_big").html(picturestr);
+				    $("#left_bottom_first div ul").html(picturestrs);
+				    $("#details_con div:eq(0)").show().siblings().hide()
+					var productDecails=Details[i].productDecails
+					var productDec=""
+					$.each(productDecails,function(i,ele){
+						productDec+='<img src="'+productDecails[i]+'"/>'
+					});
+					$("#details_con div:eq(0)").html(productDec)
+					var packing=Details[i].packing
+					var packstr=""
+					$.each(packing,function(i,ele){
+						packstr+='<span>'+packing[i]+'</span>'
+					});
+					$("#details_con div:eq(2) p").html(packstr)
+					var parameters=Details[i].parameter
+					var parameterstr=""
+					$.each(parameters, function(i,ele) {
+						parameterstr+='<tr><th>'+parameters[i].name+'</th></tr>'
+						$.each(parameters[i].con, function(j,ele) {
+							parameterstr+='<tr><td>'+parameters[i].con[j][0]+'</td><td>'+parameters[i].con[j][1]+'</td></tr>'
+						});
+					});
+					$("#details_con div:eq(1) table").html(parameterstr)
+					var cookies=getCookie("datas");	
+					if(cookies==undefined){
+						setCookie("datas","[]",50);
+						cookies=getCookie("datas");
+					}
+					var cookiesarr=JSON.parse(cookies);
+					$(".btn button:last").click(function(){
+						if(checkishas(Details[i].id)){
+							updateNum(Details[i].id,1)
+						}else{
+								var obj={
+								id:Details[i].id,
+								imgSrc:Details[i].src,
+								name:Details[i].name,
+								price:Details[i].price,
+								pcount:1
+							}
+							var cookies=getCookie("datas")
+							var cookiesarr=JSON.parse(cookies)
+							cookiesarr.push(obj);	
+							var cookiesarrstr=JSON.stringify(cookiesarr);
+							setCookie("datas",cookiesarrstr,50);
+						}
+						window.location.href="cart.html#"+Details[i].id
+					})
+				}				
+			})
+			
+			$("#left_bottom_first ul li").on('click',function(event){
+				event.stopPropagation()
+				$(this).css('border','1px solid #55a0ff').siblings().css('border','1px solid #eeeef3')
+				var x=$(this).index()
+				$('#picture_big img').eq(x).show().siblings().hide()
+			})
+			var len=$("#left_bottom_first ul li").length
+			console.log(len)
+			if(len>5){
+				$("#left_bottom_first button:last").click(function(){
+					$("#left_bottom_first div ul").css({"margin-left":"-96px"})
+					$("#left_bottom_first button:first").click(function(){
+						$("#left_bottom_first div ul").css({"margin-left":"0px"})
+					})
+				})
+			}
+			$(document).click(function(){
+				$('#location').hide()
+				$('#delivery').css("border","1px solid #cccccc")
+			})
+			$('#delivery').click(function(e){
+				e.stopPropagation()
+				$(this).css("border-bottom","0px solid #cccccc")
+				$('#location').show()
+				$('#location ul li').first().show().nextAll().hide()
+				$('#location ul li').click(function(){
+					var y=$(this).index()
+					$("#location #location_minute div").eq(y).show().siblings().hide()
+				})
+				var pros=liandong.she
+				var pro=""
+				$.each(pros,function(i,ele){
+					pro+='<span>'+pros[i]+'</span>'
+				})
+				$("#location #location_minute .first").html(pro)
+				$("#location").click(function(e){
+					e.stopPropagation()
+					$(this).show
+				})
+				$("#location_minute .first span").on('click',function(event){
+					event.stopPropagation()
+//					$('#location').show()
+					var vals=$(this).html()
+					con=vals
+					$("#location ul li").first().html(vals)
+					$("#location ul li").eq(1).show()
+					$("#location_minute div").eq(1).show().siblings().hide()
+					proindex=$(this).index()
+					var citys=liandong.shi
+					var city=""
+					$.each(citys[proindex],function(i,ele){
+						city+='<span>'+citys[proindex][i]+'</span>'
+					})
+					$("#location #location_minute div").eq(1).html(city)
+					$("#location_minute .second span").on('click',function(e){
+						e.stopPropagation()
+						var val=$(this).html()
+						con+=val
+						$("#location ul li").eq(1).html(val)
+						$("#location ul li").eq(2).show()
+						$("#location_minute div").eq(2).show().siblings().hide()
+						var index=$(this).index()
+						var regions=liandong.region
+						var qus=regions[proindex][index]
+						var qu=""
+						$.each(qus,function(i,ele){
+							qu+='<span>'+qus[i]+'</span>'
+						})
+						$("#location #location_minute div").eq(2).html(qu)
+						$("#location_minute .third span").on('click',function(e){
+							e.stopPropagation()
+							var cons=$(this).html()
+							con+=cons
+							$("#location ul li").eq(2).html(cons)
+							$("#delivery span").html('送至'+con)
+						})
+					})
+				})
+			})
+			$("#details_list li").click(function(){
+				var n=$(this).index()
+				$("#details_con div").eq(n).show().siblings().hide()
+			})
+			$(window).scroll(function(){
+				if($(window).scrollTop()>700){
+					$('#details_list').css({"position":"fixed","top":0,"left":0})
+				}else{
+					$('#details_list').css({"position":"static"})
+				}
+			})
+		})
+	</script>
+</html>

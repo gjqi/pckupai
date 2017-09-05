@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="img/酷派商城_files/icon.png"/>
+		<link rel="stylesheet" type="text/css" href="css/shoppingCart.css"/>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="myhearder"></div>
+		<div id="mybody">
+			<div id="wrap">
+				<div id="shopping_left">
+					<div id="picture_big">
+						<img src="img/酷派商城_files/商品列/商品1/1.jpg"/>
+						<img src="img/酷派商城_files/商品列/商品1/3.jpg" />
+						<img src="img/酷派商城_files/商品列/商品1/5.jpg"/>
+						<img src="img/酷派商城_files/商品列/商品1/7.jpg" />
+					</div>
+					<div id="left_bottom_first">
+						<button><</button>
+						<ul>
+							<li><img src="img/酷派商城_files/商品列/商品1/2.jpg" /></li>
+							<li><img src="img/酷派商城_files/商品列/商品1/4.jpg" /></li>
+							<li><img src="img/酷派商城_files/商品列/商品1/6.jpg" /></li>
+							<li><img src="img/酷派商城_files/商品列/商品1/8.jpg" /></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<button>></button>
+					</div>	
+				</div>
+				<div id="shopping_right">
+					<p class="commodity_name name_title">酷派LED灯多彩数据线</p>
+					<hr />
+					<p class="commodity_price price_title">￥29.00</p>
+					<div id="delivery"><span>送至</span><p>▲</p></div><span id="delivery_time">由圆通24小时内发货，预计后天(07月09号)送达</span>
+					<div id="location">
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<div id="location_minute">
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+					<p class="select_color">选择颜色</p>
+					<div class="color">
+						<div><p></p>蓝色</div>
+						<div><p></p>红色</div>
+					</div>
+					<p class="select_pro">您选择了以下产品</p>
+					<p class="commodity_name name_con">酷派LED灯多彩数据线</p>
+					应付金额（不含运费）：<span class="commodity_price price_con">￥29.00</span>
+					<p class="btn"><button>加入购物车</button><button>立即购买</button></p>  
+				</div>
+			</div>
+			<div id="message_wrap">
+				<ul id="details_list">
+					<li>产品详情</li>
+					<li>参数规格</li>
+					<li>包装清单</li>
+					<li>评价</li>
+					<li>售后保障</li>
+				</ul>
+				<div id="details_con">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div id="myfooter"></div>
+	</body>
+	<script type="text/javascript">
+		$('#myhearder').load('header.html',function(){
+			$('body').css({
+				width:'100%',
+				height:'66px'
+			})
+		})
+		$('#myfooter').load('footer.html',function(){
+			$('body').css({
+				width:'100%',
+				height:'466px'
+			})
+		})
+	</script>
+</html>
